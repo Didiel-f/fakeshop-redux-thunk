@@ -12,7 +12,13 @@ export const fetchProducts = () => {
 
 
 
-
+export const fetchProductDetail = ( id ) => {
+    return async ( dispatch ) => {
+        const response = await fakeStoreApi(`products/${ id }`).catch( console.log )
+        
+        dispatch( {type: ActionTypes.SELECTED_PRODUCT, payload: response.data} );
+    }
+};
 
 
 
